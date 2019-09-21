@@ -1,0 +1,62 @@
+Alıştırma 1
+User Story1
+İş biriminden gelen email e göre Müşterilerimiz sepete en fazla 100 ürün ekleyebilmesi gerekirken hala 100 den fazla ürünün eklenebildiğini belirtildi.
+Ekiple birilikte gelecek ilk sprint için Grooming toplantısına katıldınız. İş biriminden gelen bu sorunu User story üzerinden ekip ile üzerinden geçerek konunun detaylandırılmasını istediğiniz yerleri netleştirmek istiyorsunuz. Belirtilen tek User Story için değerlendirmenisini ekibe nasıl anlatırdınız (ana başlıklarıyla). Ayrıca sizce bu konu Hotfix olması gereken bir konu mudur?
+Cevap
+1-	Kullanıcı Problemi Web’de mi Mobil de mi, Mobil ise hangi platformda (Ios, Android), Web’de ise hangi tarayıcılardan aldığının bilgisini netleştirmemiz gerekiyor.
+2-	Eklediği ürün listesinin müşteriden alınması gerekmektedir. Sebebi ise bazı ürünler ürün adetine girmeyebilir bu sebeple 100 den fazla ürün listelenebilir.
+Alınan bilgilere istinaden müşteri hikayesini kendi tarafımda canlandırırım. Tarayıcı bazlı problem ise;
+•	X tarayıcısından sepete ürün eklendiğinde 100 adeti geçmektedir fakat Y tarayıcısında bu sınırı aşmamaktadır. X tarayıcısı için inceleme yapılmasını talep ederim.
+Ürün bazlı problem ise;
+•	Z ürünlerini sepete eklediğimizde total sınırı aşmaktadır. Total sınırın konrolünde bu ürün bu ürün neden dahil edilmediğinin incelenmesini talep ederim.
+Platform Bazlı problem ise;
+•	Andorin platformda sorun yaşamazken IOS platformda sorun yaşıyoruz. (örn) IOS platformunun sepet modülünün incelenmesini talep ederim.
+**Modül bazlı olduğu için Hotfix olması gereken bir konudur. 
+
+
+
+
+
+
+
+Alıştırma 2
+Sprint içerisinde İş Biriminden aşağıdaki konu direkt olarak size gelmiştir. Deneyimlerinize göre mevcut durumu ve konuyla ilgili değerlendirmenizi yapınız.
+İş birimi Dönüşü;
+Canlı ortamda bir müşterimiz sepete 5 ürün ekledikten sonra, sepetindeki bir ürün için alım miktarını arttırmak istediğinde ilgili ürün sayısının artmadığını ve uygulamanın direkt ödeme ekranına yönlendiğini görmektedir.
+Yapacağınız açıklama sırasında aşağıdaki durumları ele alabilirsiniz.
+- Konuyla ilgili nasıl bir yol izlerdiniz?
+- Nasıl bir Issue açardınız, hangi detayları verirdiniz (alan adlarıyla örnekleyebilirsiniz)?
+- Ekiple nasıl bir iletişim sergilerdiniz?
+Cevap
+Hangi üründe ve hangi platformda (Web Mobil[ios,android])bu problemin yaşandığı bilgisi öğrenilir.
+Alınan bilgiye istinaden aynı ortamda aynı ürün için test sağlanır.
+Sadece ürün arttırmada mı sorun yaşanıyor yoksa ürün azaltmada sorun yaşanıyor mu test edilir.
+ Ürün bazlı problem ise
+
+X ürünü için tüm platformlarda veya Spesifik platformda sepetteki ürünü arttırmaya tıkladığımızda ödeme ekranına yönlendirilmektedir. Y ürününde bu işlemi yaptığımızda ürün adetini arttırmaktadır. X ürünü için ürün azaltmaya tıkladığımızda ürün adetini azaltmaktadır.  
+X ürünü Z platformunda adet arttırma yapılamıyor. İlgili platform için X ürünü için kontrol yapmanızı rica ederim.
+Platform bazlı problem ise
+
+Sepet ekranında herhangibir ürünü arttırma veya azaltmaya tıkladığımızda bizi ödeme ekranına yönlendirmektedir.  İlgili platformun ürün adet değişim prosedürünün kontrolünün yapılması gerekmektedir.
+**Yaşanan sorun ile ilgili kayıt açılıp ilgili ekiplerle(developer,test) beraber kontroller yapılır.
+
+
+
+
+Alıştırma 3
+User Story2
+İş Birimi Olarak,
+Aktif kampanyaya bağlı, aktif liste fiyatı olan ürünlerin sistem kodunu talep ediyorum,
+Böylece alınan değerler çalıştığımız 3rd party firma ile paylaşılarak güncelleme yapılacaktır.
+Acceptance Criteria
+· Verinin excel olarak paylaşıması
+Ekip Sprint sırasında gelen ek konular dolayısıyla sizden User Story2 için destek talep etti. Aşağıdaki ER Model’e göre veriyi çekmek isteseniz nasıl bir sorgu yazardınız?
+
+Cevap
+
+
+Select DISTINCT Product.SystemCode, Campaign.IsActive from ProductPrice  inner join Product
+on ProductPrice.ProductID=Product.ID inner join Campaign 
+on ProductPrice.CampaignCode=Campaign.Code where Campaign.IsActive=aktif kampanya binary datası yazılır  and ProductPrice.ListPrice >0
+
+
